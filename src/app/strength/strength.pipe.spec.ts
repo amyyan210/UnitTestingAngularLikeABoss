@@ -8,7 +8,7 @@ describe('strength pipe', () => {
         pipe = new StrengthPipe();
     });
 
-    it('should display weak if less than 10', () => {
+    it('should display weak if 4', () => {
         const result = pipe.transform(4);
         expect(result).toEqual('4 (weak)');
     });
@@ -23,7 +23,7 @@ describe('strength pipe', () => {
         expect(result).toEqual('0 (weak)');
     });
 
-    it('should display strong if between 10 (inclusive) and 20', () => {
+    it('should display strong if 15', () => {
         const result = pipe.transform(15);
         expect(result).toEqual('15 (strong)');
     });
@@ -33,12 +33,17 @@ describe('strength pipe', () => {
         expect(result).toEqual('10 (strong)');
     });
 
-    it('should display unbelievable if 20 or greater', () => {
+    it('should display unbelievable if 20', () => {
+        const result = pipe.transform(20);
+        expect(result).toEqual('20 (unbelievable)');
+    });
+
+    it('should display unbelievable if 100', () => {
         const result = pipe.transform(100);
         expect(result).toEqual('100 (unbelievable)');
     });
 
-    it('should display weak if negative', () => {
+    it('should display weak if -4', () => {
         const result = pipe.transform(-4);
         expect(result).toEqual('-4 (weak)');
     });
